@@ -1,0 +1,20 @@
+#STEPS TO CREATE A CLUSTER
+#Complete tutorial: https://medium.com/boltops/gentle-introduction-to-how-aws-ecs-works-with-example-tutorial-cea3d27ce63d
+
+##CREATE SECURITY GROUP 
+aws ec2 create-security-group --group-name my-ecs-sg --description my-ecs-sg
+
+##CREATE CLUSTER IN AWS CONSOLE
+Go to WEBUI
+
+##Register tasks definition
+aws ecs register-task-definition --cli-input-json file://task-definition.json
+
+##Create Elastic Load Balancer
+
+##When we created the ELB with the wizard we opened it’s my-elb-sg group port 80 to the world. We also need to make sure that the my-ecs-sg security group associated with the instance we launched in step 1 allows traffic from the ELB. We created the my-ecs-sg group in step 1 at the very beginning of this tutorial. To allow all ELB traffic to hit the container instance run the following
+aws ec2 authorize-security-group-ingress --group-name my-ecs-sg --protocol tcp --port 1-65535 --source-group my-elb-sg
+
+
+
+

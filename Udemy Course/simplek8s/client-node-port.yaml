@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec: 
+  type: NodePort
+  ports:
+  #port: commmunication port between cluster pods
+  #targetPort: Port that espose the application at container level
+  #nodePort: Port through the app is reached from an external network (Web Browser)
+    - port: 3050
+      targetPort: 3000
+      nodePort: 31515
+  # In this section the service will aply the networking configuration to the pods that have this selector.
+  # For each pod it is necessary create a service
+  selector:
+    component: web

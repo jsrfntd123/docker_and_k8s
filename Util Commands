@@ -1,0 +1,48 @@
+##Example of startup command. ls is the startup command:
+docker run busybox ls
+
+##List all docker process
+docker ps
+
+##Output start command
+docker start -a busybox echo hello
+
+##Delete all dockers instances and images
+docker system prune
+
+##See docker logs
+docker logs "container id"
+
+##Stop container: If it take mora than 10 seconds the kill command is called. Stop usually make a cleanup odf the proccess and kill the process in a handsome
+docker stop "container id"
+
+##Kill container. 
+docker kill "container id"
+
+##Open shell into container
+docker exec -it 95a61e69ceb8
+
+##build an image with custom name, the you can run docker run path/ame:latest
+docker build -t path/ame:latest .
+
+##Take image snapshot from a running container
+docker commit -c 'CMD ["redis-server"]' "container-id"
+
+##Map port inside the container
+docker run -p 8080 :8080 sebastian/simpleweb
+
+###Docker compose allow to you create multiple containers and the netowrks that connect them. It is an abstraction of docker-cli and his objetive is avoid tons of code and configurations in docker-cli.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
